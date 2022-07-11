@@ -654,7 +654,8 @@ export class DocumentRegistry implements IDisposable {
       language,
       shouldStart: widgetFactory.preferKernel,
       canStart: widgetFactory.canStartKernel,
-      shutdownOnDispose: widgetFactory.shutdownOnClose
+      shutdownOnDispose: widgetFactory.shutdownOnClose,
+      autoStartDefault: widgetFactory.autoStartDefault
     };
   }
 
@@ -1095,6 +1096,12 @@ export namespace DocumentRegistry {
      * The default is `null`.
      */
     ref?: string | null;
+
+    /**
+     * Automatically start the default kernel if no other matching kernel is
+     * found.
+     */
+    readonly autoStartDefault?: boolean;
 
     /**
      * The supported insertion modes.
